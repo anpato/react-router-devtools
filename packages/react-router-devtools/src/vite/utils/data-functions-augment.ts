@@ -46,7 +46,7 @@ const transform = (ast: ParseResult<Babel.File>, routeId: string) => {
 				const importedName = specifier.imported.name
 				const localName = specifier.local.name
 				// Handle aliased imports where local name is a target export
-				// e.g., import { partnerCategoryLoader as loader }
+				// e.g., import { myLoader as loader }
 				if (ALL_EXPORTS.includes(localName) && !ALL_EXPORTS.includes(importedName)) {
 					const uniqueName = path.scope.generateUidIdentifier(localName)
 					imports.push([localName, uniqueName])
